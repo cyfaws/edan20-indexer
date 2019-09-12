@@ -3,22 +3,16 @@ import sys, regex, pickle
 def run(inputfile):
 	outputfile = inputfile.replace(".txt", ".idx")
 	dictionary = {}
-	#file = open(inputfile, "r")
 	file = open(inputfile, "r", encoding='UTF-8')
 	text = file.read().lower()
 
 	wordcount = 0
-	poscount = 0
-
-
 	matches = regex.finditer(r'\p{L}+', text)
 	for match in matches:
 
-		word = match.group()#.lower()
+		word = match.group()
 		pos = match.start()
-
 		wordcount += 1
-		poscount += len(word) + 1
 
 		if dictionary.__contains__(word) :
 		    dictionary[word].append(pos)

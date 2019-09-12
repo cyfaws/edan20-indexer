@@ -2,11 +2,6 @@ import index_file, folder_reader, sys, os, pickle, regex, math
 
 def calc_tf(word, doc):
 	amount = len(master_index[word][doc])
-	#wordstotal = 0
-	#for wordentry in master_index:
-	#	if master_index[wordentry].__contains__(doc):
-	#		wordstotal += len(master_index[wordentry][doc])
-	#print(wordcounts[doc], wordstotal)
 	return amount / wordcounts[doc]
 
 def calc_idf(word):
@@ -68,7 +63,6 @@ i = 0
 for doc1 in files:
 	j = 0
 	for doc2 in files:
-		#cos_sim_matrix[doc1] = {doc2: calc_cos_sim(doc_tfidfs[doc1].values(), doc_tfidfs[doc2].values()) }
 		cos_sim_matrix_set[doc1] = {doc2: calc_cos_sim(doc_tfidfs[doc1], doc_tfidfs[doc2])}
 		print(i,j)
 		cos_sim_matrix[i][j] = cos_sim_matrix_set[doc1][doc2]
@@ -80,7 +74,7 @@ for doc1 in files:
 #d2 21	x 	23	24
 #d3	31	32	x 	34
 #d4 41	42	43	x
-print(master_index["nils"]["jerusalem.txt"])
-print(doc_tfidfs["bannlyst.txt"]["et"])
-print(cos_sim_matrix_set)
-print(cos_sim_matrix)
+#print(master_index["nils"]["jerusalem.txt"])
+#print(doc_tfidfs["bannlyst.txt"]["et"])
+#print(cos_sim_matrix_set)
+#print(cos_sim_matrix)
